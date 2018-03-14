@@ -245,7 +245,7 @@ void FileGenerator::GenerateSource(io::Printer* printer) {
   for (int i = 0; i < file_->dependency_count(); i++) {
     const FileDescriptor* dependency = file_->dependency(i);
     // Open the dependency's namespace.
-    vector<string> dependency_package_parts;
+    std::vector<string> dependency_package_parts;
     SplitStringUsing(dependency->package(), ".", &dependency_package_parts);
     // Declare its BuildDescriptors() function.
     printer->Print(
